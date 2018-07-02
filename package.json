@@ -1,0 +1,26 @@
+{
+  "name": "my-albums",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ACEof/my-albums.git"
+  },
+  "keywords": [
+    "photo",
+    "album"
+  ],
+  "author": "Alexandr Kizilow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ACEof/my-albums/issues"
+  },
+  "homepage": "https://github.com/ACEof/my-albums#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
