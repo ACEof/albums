@@ -1,3 +1,24 @@
 body{
   background-image: url("../img/first_background.jpg");
 }
+
+div.container {
+  height: 40em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#but_sign{
+  background-color: green;
+  border: solid 1px;
+  border-radius: 20px;
+  font-size: 20pt;
+  color: #0cf404;
+  text-decoration: none;
+}
+
+#but_sign:hover{
+  background-color: azure;
+  color: darkblue;
+}
