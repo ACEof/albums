@@ -23,10 +23,10 @@ app.use(cookieSession({
 app.use(express.static('public'));
 
 passport.serializeUser(function(user, done) {
-  done(null, user)
+  done(null, user);
 });
 passport.deserializeUser(function(user, done) {
-  done(null, user)
+  done(null, user);
 });
 
 passport.use(new GoogleStrategy({
@@ -35,7 +35,7 @@ passport.use(new GoogleStrategy({
   callbackURL: 'http://my-albums1.herokuapp.com/auth/google/callback'
 },
 function(accessToken, refreshToken, profile, done) {
-    return done(null, profile)
+    return done(null, profile);
 }));
 
 app.get('/albums', function (req, res, next) {
