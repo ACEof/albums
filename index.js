@@ -57,6 +57,10 @@ app.get('/auth/google/callback',
     failureRedirect: '/auth/google', 
 }));
 
+app.get('/', function (req, res) {
+  
+});
+
 app.listen(process.env.PORT || port, function () {
   console.log('Server working');
 });
