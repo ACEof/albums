@@ -53,7 +53,7 @@ app.get('/auth/google',
 
 app.get('/auth/google/callback',
   passport.authenticate( 'google', {
-    successRedirect: '/albums.html',
+    successRedirect: '/',
     failureRedirect: '/auth/google', 
 }));
 
