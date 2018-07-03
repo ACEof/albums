@@ -9,7 +9,7 @@ div.container {
   justify-content: center;
 }
 
-#but_sign{
+#btn_sign{
   background-color: green;
   border: solid 1px;
   border-radius: 20px;
@@ -18,7 +18,21 @@ div.container {
   text-decoration: none;
 }
 
-#but_sign:hover{
+#btn_sign:hover{
+  background-color: azure;
+  color: darkblue;
+}
+
+#btn_open{
+  background-color: green;
+  border: solid 1px;
+  border-radius: 20px;
+  font-size: 20pt;
+  color: #0cf404;
+  text-decoration: none;
+}
+
+#btn_open:hover{
   background-color: azure;
   color: darkblue;
 }

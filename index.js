@@ -32,11 +32,19 @@ passport.deserializeUser(function(user, done) {
 passport.use(new GoogleStrategy({
   clientID: process.env.clientID,
   clientSecret: process.env.clientSecret,
-  callbackURL: 'http://my-albums1.herokuapp.com/auth/google/callback'
+  callbackURL: 'my-albums1.herokuapp.com/auth/google/callback'
 },
 function(accessToken, refreshToken, profile, done) {
     return done(null, profile)
 }));
+
+app.get('/albums', function (req, res, next) {
+  if (req.session.passport) {
+    return res.redirect('/albums.html');
+    next();
+  }  
+  res.redirect('/auth/google');
+});
 
 app.get('/auth/google',
   passport.authenticate('google', { successRedirect: '/',scope:
@@ -48,14 +56,6 @@ app.get('/auth/google/callback',
     successRedirect: '/albums.html',
     failureRedirect: '/auth/google', 
 }));
-
-app.get('/albums.html', function (req, res) {
-  
-})
-
-app.get('/', function (req, res, next) {
-
-});
 
 app.listen(process.env.PORT || port, function () {
   console.log('Server working');
