@@ -1,14 +1,62 @@
 var express = require('express');
+var cookieSession = require('cookie-session');
+var passport = require('passport');
+var GoogleStrategy = require('passport-google-oauth2').Strategy;
 
 var app = express();
 
 var port = 3000;
 
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(cookieSession({
+  name: 'session',
+  secret: 'my-secret-1234',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    path: '/',
+    httpOnly: true,
+    maxAge: 24 * 60 * 60 * 1000
+  }
+}));
 app.use(express.static('public'));
 
-app.get('/', function (req, res) {});
+passport.serializeUser(function(user, done) {
+  done(null, user)
+});
+passport.deserializeUser(function(user, done) {
+  done(null, user)
+});
+
+passport.use(new GoogleStrategy({
+  clientID: process.env.clientID,
+  clientSecret: process.env.clientSecret,
+  callbackURL: 'http://my-albums1.herokuapp.com/auth/google/callback'
+},
+function(accessToken, refreshToken, profile, done) {
+    return done(null, profile)
+}));
+
+app.get('/auth/google',
+  passport.authenticate('google', { successRedirect: '/',scope:
+    [ 'https://www.googleapis.com/auth/userinfo.email' ] 
+}));
+
+app.get('/auth/google/callback',
+  passport.authenticate( 'google', {
+    successRedirect: '/albums.html',
+    failureRedirect: '/auth/google', 
+}));
+
+app.get('/albums.html', function (req, res) {
+  
+})
+
+app.get('/', function (req, res, next) {
+
+});
 
 app.listen(process.env.PORT || port, function () {
   console.log('Server working');
 });
-
