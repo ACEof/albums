@@ -47,7 +47,7 @@ function(accessToken, refreshToken, profile, done) {
 
 app.get('/albums', function (req, res, next) {
   if (req.session.passport) {
-    return res.render('albums', {name: req.session.passport.user});
+    return res.render('albums', {name: req.session.passport.user.displayName});
     next();
   }  
   res.redirect('/auth/google');
