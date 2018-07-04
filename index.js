@@ -2,6 +2,8 @@ var express = require('express');
 var cookieSession = require('cookie-session');
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth2').Strategy;
+var models = require('./models');
+var key = require('./keys');
 
 var app = express();
 
@@ -59,6 +61,14 @@ app.get('/auth/google/callback',
 
 app.get('/', function (req, res) {
   
+});
+
+models.sequelize.sync()
+  .then(function() {
+    console.log('Connection has been established successfully.');
+})
+  .catch(function(err) {
+    console.log('Unable to connect to the database:', err);
 });
 
 app.listen(process.env.PORT || port, function () {
