@@ -4,10 +4,15 @@ var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth2').Strategy;
 var models = require('./models');
 var key = require('./keys');
+var handlebars = require('express-handlebars')
+  .create({defaultLayout: 'main'});
 
 var app = express();
 
 var port = 3000;
+
+app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'handlebars');
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -22,7 +27,7 @@ app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000
   }
 }));
-app.use(express.static('public'));
+app.use(express.static('static'));
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -42,7 +47,7 @@ function(accessToken, refreshToken, profile, done) {
 
 app.get('/albums', function (req, res, next) {
   if (req.session.passport) {
-    return res.redirect('/albums.html');
+    return res.render('albums', {name: req.session.passport.user});
     next();
   }  
   res.redirect('/auth/google');
@@ -59,8 +64,12 @@ app.get('/auth/google/callback',
     failureRedirect: '/auth/google', 
 }));
 
-app.get('/', function (req, res) {
-  
+app.get('/', function (req, res, next) {
+  if (req.session.passport) {
+    return res.redirect('/albums');
+    next();
+  }
+  res.render('home');
 });
 
 models.sequelize.sync()
