@@ -1,15 +1,14 @@
-var express = require('express');
-var cookieSession = require('cookie-session');
-var passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth2').Strategy;
-var models = require('./models');
-var key = require('./keys');
-var handlebars = require('express-handlebars')
+const express = require('express');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
+const models = require('./models');
+const handlebars = require('express-handlebars')
   .create({defaultLayout: 'main'});
 
-var app = express();
+const app = express();
 
-var port = 3000;
+const port = 3000;
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
@@ -17,8 +16,8 @@ app.set('view engine', 'handlebars');
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieSession({
-  name: 'session',
-  secret: 'my-secret-1234',
+  name: process.env.nameSession ,
+  secret: process.env.secretSession,
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -29,23 +28,23 @@ app.use(cookieSession({
 }));
 app.use(express.static('static'));
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser((user, done) => {
   done(null, user);
 });
-passport.deserializeUser(function(user, done) {
+passport.deserializeUser((user, done) => {
   done(null, user);
 });
 
 passport.use(new GoogleStrategy({
   clientID: process.env.clientID,
   clientSecret: process.env.clientSecret,
-  callbackURL: 'http://my-albums1.herokuapp.com/auth/google/callback'
+  callbackURL: process.env.callbackURL
 },
 function(accessToken, refreshToken, profile, done) {
     return done(null, profile);
 }));
 
-app.get('/albums', function (req, res, next) {
+app.get('/albums', (req, res, next) => {
   if (req.session.passport) {
     return res.render('albums', {name: req.session.passport.user.displayName});
     next();
@@ -64,7 +63,7 @@ app.get('/auth/google/callback',
     failureRedirect: '/auth/google', 
 }));
 
-app.get('/', function (req, res, next) {
+app.get('/',(req, res, next) => {
   if (req.session.passport) {
     return res.redirect('/albums');
     next();

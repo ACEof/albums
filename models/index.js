@@ -1,8 +1,8 @@
-var Sequelize = require('sequelize');
+const Sequelize = require('sequelize');
 
-var sequelize = new Sequelize( process.env.DATABASE_URL);
+const sequelize = new Sequelize( process.env.DATABASE_URL);
 
-var db = {};
+const db = {};
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
