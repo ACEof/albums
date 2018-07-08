@@ -5,10 +5,9 @@ const GoogleStrategy = require('passport-google-oauth2').Strategy;
 const models = require('./models');
 const handlebars = require('express-handlebars')
   .create({defaultLayout: 'main'});
+require('dotenv').config();
 
 const app = express();
-
-const port = 3000;
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
@@ -16,7 +15,7 @@ app.set('view engine', 'handlebars');
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieSession({
-  name: process.env.nameSession ,
+  name: process.env.nameSession,
   secret: process.env.secretSession,
   resave: false,
   saveUninitialized: true,
@@ -41,7 +40,7 @@ passport.use(new GoogleStrategy({
   callbackURL: process.env.callbackURL
 },
 function(accessToken, refreshToken, profile, done) {
-    return done(null, profile);
+  return done(null, profile);
 }));
 
 app.get('/albums', (req, res, next) => {
@@ -55,13 +54,13 @@ app.get('/albums', (req, res, next) => {
 app.get('/auth/google',
   passport.authenticate('google', { successRedirect: '/',scope:
     [ 'https://www.googleapis.com/auth/userinfo.email' ] 
-}));
+  }));
 
 app.get('/auth/google/callback',
   passport.authenticate( 'google', {
     successRedirect: '/',
     failureRedirect: '/auth/google', 
-}));
+  }));
 
 app.get('/',(req, res, next) => {
   if (req.session.passport) {
@@ -72,13 +71,13 @@ app.get('/',(req, res, next) => {
 });
 
 models.sequelize.sync()
-  .then(function() {
+  .then(() => {
     console.log('Connection has been established successfully.');
-})
-  .catch(function(err) {
+  })
+  .catch((err) => {
     console.log('Unable to connect to the database:', err);
-});
+  });
 
-app.listen(process.env.PORT || port, function () {
+app.listen(process.env.PORT, () => {
   console.log('Server working');
 });
