@@ -6,3 +6,12 @@
   width: 200px;
   color: #f90000;
 }
+
+#logout{
+  font-size: 20px;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 200px;
+  color: #f90000;
+}

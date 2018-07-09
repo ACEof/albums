@@ -70,6 +70,11 @@ app.get('/',(req, res, next) => {
   res.render('home');
 });
 
+app.get('/logout',(req, res) => {
+  req.session = null;
+  res.redirect('/');
+});
+
 models.sequelize.sync()
   .then(() => {
     console.log('Connection has been established successfully.');
