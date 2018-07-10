@@ -75,13 +75,13 @@ app.get('/logout',(req, res) => {
   res.redirect('/');
 });
 
-models.sequelize.sync()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch((err) => {
-    console.log('Unable to connect to the database:', err);
-  });
+async () => {
+  try {
+   const connect = await models.sequelize.sync();
+  }
+  catch(err){
+  }
+};
 
 app.listen(process.env.PORT, () => {
   console.log('Server working');
