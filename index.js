@@ -2,9 +2,7 @@ const express = require('express');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
-const models = require('./models');
-const handlebars = require('express-handlebars')
-  .create({defaultLayout: 'main'});
+const handlebars = require('express-handlebars').create({defaultLayout: 'main'});
 require('dotenv').config();
 
 const app = express();
@@ -74,14 +72,6 @@ app.get('/logout',(req, res) => {
   req.session = null;
   res.redirect('/');
 });
-
-async () => {
-  try {
-   const connect = await models.sequelize.sync();
-  }
-  catch(err){
-  }
-};
 
 app.listen(process.env.PORT, () => {
   console.log('Server working');
