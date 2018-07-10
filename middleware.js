@@ -30,6 +30,7 @@ function initializeSession(app) {
     }
   })); 
 }
+
 function initializeStatic (app, express) {
   app.use(express.static('static'));
   app.use('/static', express.static('static'));
@@ -80,6 +81,10 @@ function routers(app) {
       next();
     }  
     res.redirect('/auth/google');
+  });
+
+  app.get('/add-albums', (req, res) => {
+    res.render('add-albums');
   });
 
   app.get('/logout',(req, res) => {
