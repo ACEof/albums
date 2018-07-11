@@ -1,11 +1,20 @@
-const express = require('express');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
 const handlebars = require('express-handlebars').create({defaultLayout: 'main'});
 require('dotenv').config();
+const User = require('./models/users');
+const db = require('./models/dataBase');
 
-const app = express();
+module.exports = function midleware(app, express){
+  connectDB();
+  setStrategy();
+  initializeHandlebars(app);
+  initializePassport(app);
+  initializeSession(app);
+  initializeStatic(app, express);
+  routers(app);
+};
 
 function initializeHandlebars(app) {  
   app.engine('handlebars', handlebars.engine);
@@ -55,7 +64,6 @@ function setStrategy() {
 }
 
 function routers(app) {
- 
   app.get('/auth/google',
     passport.authenticate('google', { successRedirect: '/',scope:
   [ 'https://www.googleapis.com/auth/userinfo.email' ] 
@@ -67,18 +75,17 @@ function routers(app) {
       failureRedirect: '/auth/google', 
     }));
 
-  app.get('/',(req, res, next) => {
+  app.get('/',(req, res) => {
     if (req.session.passport) {
       return res.redirect('/albums');
-      next();
     }
     res.render('home');
   });
 
-  app.get('/albums', (req, res, next) => {
+  app.get('/albums', (req, res) => {
     if (req.session.passport) {
+      findOrCreateUser(req.session.passport.user.displayName);
       return res.render('albums', {name: req.session.passport.user.displayName});
-      next();
     }  
     res.redirect('/auth/google');
   });
@@ -93,13 +100,17 @@ function routers(app) {
   });
 }
 
-function midleware(app, express){
-  setStrategy();
-  initializeHandlebars(app);
-  initializePassport(app);
-  initializeSession(app);
-  initializeStatic(app, express);
-  routers(app);
+function connectDB(){
+  db.sync();
 }
 
-module.exports = midleware;
+function findOrCreateUser(name){
+  User
+    .findOrCreate({where:{username:name}})
+    .spread((user, created) => {
+      console.log(user.get({
+        plain: true
+      }));
+      console.log(created);
+    });
+}
