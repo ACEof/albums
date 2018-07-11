@@ -1,0 +1,47 @@
+body{
+  background-image: url("../img/first_background.jpg");
+}
+
+div.container {
+  height: 40em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#btn_sign{
+  background-color: green;
+  border: solid 1px;
+  border-radius: 20px;
+  font-size: 20pt;
+  color: #0cf404;
+  text-decoration: none;
+}
+
+#btn_sign:hover{
+  background-color: azure;
+  color: darkblue;
+}
+
+#btn_open{
+  background-color: green;
+  border: solid 1px;
+  border-radius: 20px;
+  font-size: 20pt;
+  color: #0cf404;
+  text-decoration: none;
+}
+
+#btn_open:hover{
+  background-color: azure;
+  color: darkblue;
+}
+
+#userName{
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  color: #f90000;
+}
