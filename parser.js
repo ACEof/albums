@@ -7,8 +7,7 @@ function parser(app) {
     if (!req.body) {
       return res.sendStatus(400);
     }
-    console.log(req.body.albumTitle);
-    res.redirect('/albums');
+    res.render('albums', {albumTitle: req.body.albumTitle});
   });
 }
 
