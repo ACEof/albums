@@ -1,5 +1,5 @@
 const bodyParser = require('body-parser');
-const Album = require('./models/albums');
+const Album = require('../models/albums');
 
 function parser(app) {
   const urlencodedParser = bodyParser.urlencoded({extended: false});

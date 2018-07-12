@@ -1,4 +1,4 @@
-const middleware = require('./middleware');
+const middleware = require('./middleware/index');
 const express = require('express');
 require('dotenv').config();
 
