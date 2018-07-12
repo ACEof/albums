@@ -5,6 +5,7 @@ const handlebars = require('express-handlebars').create({defaultLayout: 'main'})
 require('dotenv').config();
 const User = require('./models/users');
 const db = require('./models/dataBase');
+const parser = require('./parser');
 
 module.exports = function midleware(app, express){
   connectDB();
@@ -14,6 +15,7 @@ module.exports = function midleware(app, express){
   initializeSession(app);
   initializeStatic(app, express);
   routers(app);
+  parser(app);
 };
 
 function initializeHandlebars(app) {  
