@@ -3,7 +3,7 @@ const auth = require('./auth');
 const albums = require('./albums');
 const addAlbums = require('./add-albums');
 const logOut = require('./logout');
-const add = require('./add');
+const add = require('./add-album-title');
 
 module.exports = function routers (app) {
   main(app);

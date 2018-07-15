@@ -3,7 +3,8 @@ const db = require('./dataBase');
 
 const Albums = db.define('albums', {
   id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true, allowNull: false },
-  albumTitle: Sequelize.STRING
+  albumTitle: Sequelize.STRING,
+  //userId: Sequelize.INTEGER
 });
 
 module.exports = Albums;
