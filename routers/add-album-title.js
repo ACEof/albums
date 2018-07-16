@@ -1,33 +1,32 @@
 const bodyParser = require('body-parser');
 const Album = require('../models/albums');
 const User = require('../models/users');
-const db = require('../models/dataBase');
+const db = require('../models/index');
 
-function parser(app) {
+function addAlbumTitleIntoDB(app) {
   const urlencodedParser = bodyParser.urlencoded({extended: false});
 
   app.post('/add', urlencodedParser, (req, res) => {
     if (!req.body) {
       return res.sendStatus(400);
     }
-    //res.render('albums', {albumTitle: req.body.albumTitle});
-    res.redirect('/albums');
-    let usid;
-    usid = findId(req.session.passport.user.displayName)
-    console.log(usid);
+    findUserId(req.session.passport.user.displayName)
+      .then((id) => {
+        createAlbum(req.body.albumTitle, id[0].id)
+      })
+    res.redirect('/albums');  
   });
 }
 
-function createOrFindAlbum(title) {
+function createAlbum(title, id) {
   Album
-    .findOrCreate({where: {albumTitle: title}});
+    .create({album_title: title, user_id: id});
 }
 
-const findId = async  (userName) => { 
-    const select = await db.query('SELECT id from users where username = ?', 
-      { replacements: [userName], type: db.QueryTypes.SELECT})
-    console.log(select);
-    return select[0].id;
+const findUserId = async (userName) => {
+   const select = await db.query('SELECT id from users where username = ?', 
+      { replacements: [userName], type: db.QueryTypes.SELECT})  
+    return select;  
 }
 
-module.exports = parser;
+module.exports = addAlbumTitleIntoDB;
