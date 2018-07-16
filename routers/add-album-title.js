@@ -2,10 +2,9 @@ const bodyParser = require('body-parser');
 const Album = require('../models/albums');
 const User = require('../models/users');
 const db = require('../models/index');
+const urlencodedParser = bodyParser.urlencoded({extended: false});
 
-function addAlbumTitleIntoDB(app) {
-  const urlencodedParser = bodyParser.urlencoded({extended: false});
-
+module.exports = function addAlbumTitleIntoDB(app) {
   app.post('/add', urlencodedParser, (req, res) => {
     if (!req.body) {
       return res.sendStatus(400);
@@ -28,5 +27,3 @@ const findUserId = async (userName) => {
       { replacements: [userName], type: db.QueryTypes.SELECT})  
     return select;  
 }
-
-module.exports = addAlbumTitleIntoDB;
