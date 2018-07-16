@@ -7,4 +7,15 @@ const Users = db.define('users',
     username: Sequelize.STRING(100),
   });
 
-module.exports = Users;
+  const findUserId = async (userName) => {
+    const select = await db.query('SELECT id from users where username = ?', 
+       { replacements: [userName], type: db.QueryTypes.SELECT})  
+     return select;  
+ }
+
+ function findOrCreateUser(name){
+  Users
+    .findOrCreate({where:{username:name}});
+} 
+
+module.exports = {Users, findUserId, findOrCreateUser};
