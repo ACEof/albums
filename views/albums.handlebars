@@ -7,5 +7,10 @@
   <a href="/logout" id="logout">LogOut</a> <br>
   <p id="userName">{{name}}</p>
   <a href="/add-albums">Add Album</a> <br> <br>
-  <a href= "#" id="albumTitle">{{albumTitle}}</a>
+  <p>{{test}}</p>
+  <ul id="titleList">
+   {{#each title}}
+    <li>{{this}}</li>
+    {{/each}} 
+  </ul>
 </body>

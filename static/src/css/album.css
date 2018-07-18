@@ -20,3 +20,8 @@ body{
   width: 200px;
   color: black;
 }
+
+#logout:hover {
+  text-decoration: none;
+  color: blue;
+}
