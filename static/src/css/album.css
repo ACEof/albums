@@ -3,6 +3,20 @@ body{
   font-family: 'Montserrat', sans-serif;
 }
 
+.button{
+  background-color: green;
+  border: solid 1px;
+  border-radius: 20px;
+  font-size: 20pt;
+  color: #0cf404;
+  text-decoration: none;
+}
+
+.button:hover{
+  background-color: azure;
+  color: darkblue;
+}
+
 #userName{
   font-size: 20px;
   position: absolute;
