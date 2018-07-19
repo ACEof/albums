@@ -6,7 +6,7 @@ module.exports = {
       'albums',
       'userID',
       Sequelize.INTEGER
-    )
+    );
   },
 
   down: (queryInterface, Sequelize) => {
