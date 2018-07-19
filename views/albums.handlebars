@@ -7,7 +7,11 @@
   <a href="/logout" id="logout">LogOut</a> <br>
   <p id="userName">{{name}}</p>
   <a href="/add-albums" class="button">Add Album</a> <br> <br>
-  <p>{{test}}</p>
+  <div id="options">
+    <form action="/rename" method="POST">
+      <label>Old Title</label> <input name="oldTitle" type="text"> <label>New Title</label> <input name="newTitle" type="text"> <input type="submit" class="button" value="Rename">
+    </form>
+  </div>
   <ul id="titleList">
    {{#each title}}
     <li>{{this}}</li>

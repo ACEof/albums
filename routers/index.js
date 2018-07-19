@@ -4,6 +4,7 @@ const albums = require('./albums');
 const addAlbums = require('./add-albums');
 const logOut = require('./logout');
 const addAlbumTitleIntoDB = require('./add-album-title');
+const renameAlbum = require('./rename-album');
 
 module.exports = function routers (app) {
   main(app);
@@ -11,5 +12,6 @@ module.exports = function routers (app) {
   albums(app);
   addAlbums(app);
   addAlbumTitleIntoDB(app);
+  renameAlbum(app);
   logOut(app);
 };
