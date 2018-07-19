@@ -11,5 +11,5 @@ module.exports = function deleteAlbum(app) {
     
     Albums.deleteAlbum(req.body.albumTitle);
     res.redirect('/albums');
-  })
-}
+  });
+};
