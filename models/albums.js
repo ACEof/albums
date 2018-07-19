@@ -12,10 +12,17 @@ function createAlbum(title, id) {
     .create({albumtitle: title, user_id: id});
 }
 
+function deleteAlbum(title){
+  Albums
+    .destroy({where: {
+      albumtitle: title
+    }});
+}
+
 const selectAlbumTitle = async (userID) => {
   const albumTitile = await db.query('SELECT albumtitle from albums where user_id = ?', 
     {replacements: [userID], type: db.QueryTypes.SELECT})
   return albumTitile;  
 }
 
-module.exports = {Albums, createAlbum, selectAlbumTitle};
+module.exports = {Albums, createAlbum, selectAlbumTitle, deleteAlbum};

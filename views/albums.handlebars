@@ -7,7 +7,13 @@
   <a href="/logout" id="logout">LogOut</a> <br>
   <p id="userName">{{name}}</p>
   <a href="/add-albums" class="button">Add Album</a> <br> <br>
-  <p>{{test}}</p>
+  <div id="options">
+    <form action="/options" method="POST">
+      <input type="text" name="albumTitle">
+      <input type="submit" class="button" value="Delete Album">
+    </form>
+  </div>
+
   <ul id="titleList">
    {{#each title}}
     <li>{{this}}</li>
