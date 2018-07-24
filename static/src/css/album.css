@@ -39,3 +39,13 @@ body{
   text-decoration: none;
   color: blue;
 }
+
+#rename{
+  position: absolute;
+  top: 200px;
+}
+
+#listAlbum{
+  position: absolute;
+  top: 250px;
+}
