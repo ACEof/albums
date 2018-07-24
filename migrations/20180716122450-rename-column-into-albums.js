@@ -5,7 +5,5 @@ module.exports = {
     queryInterface.renameColumn('albums', 'album_title', 'albumtitle');
   },
 
-  down: (queryInterface, Sequelize) => {
-
-  }
+  down: (queryInterface, Sequelize) => {  }
 };
