@@ -24,5 +24,12 @@ const selectAlbumTitle = async (userID) => {
     {replacements: [userID], type: db.QueryTypes.SELECT})
   return albumTitile;  
 }
+function renameAlbum(oldTitle, newTitle){
+  Albums.update({
+    albumtitle: newTitle,
+    }, {
+    where: {albumtitle: oldTitle}
+  })
+}
 
-module.exports = {Albums, createAlbum, selectAlbumTitle, deleteAlbum};
+module.exports = {Albums, createAlbum, selectAlbumTitle, deleteAlbum, renameAlbum};
