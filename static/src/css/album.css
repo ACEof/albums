@@ -1,17 +1,41 @@
+body{
+  background-color: #CCFF99;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.button{
+  background-color: green;
+  border: solid 1px;
+  border-radius: 20px;
+  font-size: 20pt;
+  color: #0cf404;
+  text-decoration: none;
+}
+
+.button:hover{
+  background-color: azure;
+  color: darkblue;
+}
+
 #userName{
   font-size: 20px;
   position: absolute;
   top: 0;
   right: 0;
   width: 200px;
-  color: #f90000;
+  color: black;
 }
 
 #logout{
   font-size: 20px;
   position: absolute;
-  top: 40px;
+  top: 70px;
   right: 0;
   width: 200px;
-  color: #f90000;
+  color: black;
+}
+
+#logout:hover {
+  text-decoration: none;
+  color: blue;
 }
