@@ -8,8 +8,8 @@ module.exports = function deleteAlbum(app) {
     if (!req.body) {
       return res.sendStatus(400);
     }
-    
+
     Albums.renameAlbum(req.body.oldTitle, req.body.newTitle);
     res.redirect('/albums');
   });
-}; 
+};
