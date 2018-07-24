@@ -21,9 +21,10 @@ function deleteAlbum(title){
 
 const selectAlbumTitle = async (userID) => {
   const albumTitile = await db.query('SELECT albumtitle from albums where user_id = ?', 
-    {replacements: [userID], type: db.QueryTypes.SELECT})
+    {replacements: [userID], type: db.QueryTypes.SELECT});
   return albumTitile;  
-}
+};
+
 function renameAlbum(oldTitle, newTitle){
   Albums.update({
     albumtitle: newTitle,
