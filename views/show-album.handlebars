@@ -1,0 +1,14 @@
+<head>
+    <link rel="stylesheet" href="/src/css/show-album.css">
+    <title>{{headTitle}}</title>
+</head>
+<body>
+    <div id="upload">
+        <h1>{{albumTitle}}</h1>
+        <form enctype="multipart/form-data" method="post">
+            <p>Upload your photos to the server</p>
+            <p><input type="file" name="photo" multiple accept="image/*,image/jpeg">
+                <input type="submit" value="Send" class="button"></p>
+        </form>
+    </div>
+</body>
