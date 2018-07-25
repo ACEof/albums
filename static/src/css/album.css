@@ -37,7 +37,7 @@ body{
 
 #logout:hover {
   text-decoration: none;
-  color: blue;
+  color: darkblue;
 }
 
 #option{
@@ -48,4 +48,19 @@ body{
 #listAlbum{
   position: absolute;
   top: 250px;
+}
+
+li{
+  font-size: x-large;
+  list-style-type: none;
+}
+
+.listAlbum{
+  text-decoration: none;
+  color: black;
+}
+
+.listAlbum:hover{
+  color: darkblue;
+  text-decoration-line: underline;
 }
