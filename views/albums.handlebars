@@ -7,8 +7,8 @@
   <a href="/logout" id="logout">LogOut</a> <br>
   <p id="userName">{{name}}</p>
 
-  <div>
-      <form action="/add-albums" method="POST">
+  <div >
+      <form action="/add-album" method="POST">
           <input type="text" name="title">
           <input type="submit" value="Add album" class="button">
       </form>
@@ -22,7 +22,7 @@
   </div>
 
   <div>
-      <form action="/rename" method="POST">
+      <form action="/rename-album" method="POST">
           <label>Old Title</label> <input name="oldTitle" type="text"> <label>New Title</label> <input name="newTitle" type="text"> <input type="submit" class="button" value="Rename">
       </form>
   </div>

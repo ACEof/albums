@@ -5,7 +5,7 @@ const User = require('../models/users');
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 module.exports = function addAlbum(app) {
-  app.post('/add-albums', urlencodedParser, (req, res) => {
+  app.post('/add-album', urlencodedParser, (req, res) => {
     if (!req.body) {
       return res.sendStatus(400);
     }
