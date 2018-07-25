@@ -3,34 +3,40 @@
   <title>Albums</title>
 </head>
 <body>
-  <h1>Albums</h1>
-  <a href="/logout" id="logout">LogOut</a> <br>
-  <p id="userName">{{name}}</p>
+<a href="/logout" id="logout">LogOut</a> <br>
+<p id="userName">{{name}}</p>
 
-  <div >
+<div id="options">
+  <div id="add">
       <form action="/add-album" method="POST">
-          <input type="text" name="title">
+          <input type="text" name="title"> <br>
           <input type="submit" value="Add album" class="button">
       </form>
   </div>
 
-  <div>
+  <div id="delete">
       <form action="/delete-album" method="POST">
-          <input type="text" name="albumTitle">
+          <input type="text" name="albumTitle"> <br>
           <input type="submit" class="button" value="Delete Album">
       </form>
   </div>
 
   <div>
       <form action="/rename-album" method="POST">
-          <label>Old Title</label> <input name="oldTitle" type="text"> <label>New Title</label> <input name="newTitle" type="text"> <input type="submit" class="button" value="Rename">
+          <label class="lbTitle">Old Title</label> <br>
+          <input name="oldTitle" type="text"> <br>
+          <label class="lbTitle">New Title</label> <br>
+          <input name="newTitle" type="text"> <br>
+          <input type="submit" class="button" value="Rename">
       </form>
   </div>
+</div>
 
   <div id="listAlbum">
+      <h1 id="title">Albums</h1>
       <ul id="titleList">
         {{#each title}}
-            <li> <a href="show-album-{{this}}" class="listAlbum">{{this}}</a></li>
+            <li> <a href="show-album-{{this}}" class="linkAlbum">{{this}}</a></li>
         {{/each}}
       </ul>
   </div>

@@ -3,7 +3,14 @@ body{
   font-family: 'Montserrat', sans-serif;
 }
 
+#options{
+  position: absolute;
+  left: 25%;
+  top: 15%;
+}
+
 .button{
+  margin-top: 10px;
   background-color: green;
   border: solid 1px;
   border-radius: 20px;
@@ -15,6 +22,14 @@ body{
 .button:hover{
   background-color: azure;
   color: darkblue;
+}
+
+#add{
+  margin-bottom: 10px;
+}
+
+#delete{
+  margin-bottom: 10px;
 }
 
 #userName{
@@ -42,7 +57,8 @@ body{
 
 #listAlbum{
   position: absolute;
-  top: 250px;
+  right: 35%;
+  top: 10%;
 }
 
 li{
@@ -50,16 +66,17 @@ li{
   list-style-type: none;
 }
 
-.listAlbum{
+.linkAlbum{
   text-decoration: none;
   color: black;
 }
 
-.listAlbum:hover{
+.linkAlbum:hover{
   color: darkblue;
   text-decoration-line: underline;
 }
 
 label{
-  font-size: large;
+  margin-bottom: 10px;
+  font-size: x-large;
 }
