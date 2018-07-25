@@ -9,21 +9,6 @@ body{
   top: 15%;
 }
 
-.button{
-  margin-top: 10px;
-  background-color: green;
-  border: solid 1px;
-  border-radius: 20px;
-  font-size: 20pt;
-  color: #0cf404;
-  text-decoration: none;
-}
-
-.button:hover{
-  background-color: azure;
-  color: darkblue;
-}
-
 #add{
   margin-bottom: 10px;
 }
@@ -59,6 +44,21 @@ body{
   position: absolute;
   right: 35%;
   top: 10%;
+}
+
+.button{
+  margin-top: 10px;
+  background-color: green;
+  border: solid 1px;
+  border-radius: 20px;
+  font-size: 20pt;
+  color: #0cf404;
+  text-decoration: none;
+}
+
+.button:hover{
+  background-color: azure;
+  color: darkblue;
 }
 
 li{
