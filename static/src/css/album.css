@@ -40,11 +40,6 @@ body{
   color: darkblue;
 }
 
-#option{
-  position: absolute;
-  top: 200px;
-}
-
 #listAlbum{
   position: absolute;
   top: 250px;
@@ -63,4 +58,8 @@ li{
 .listAlbum:hover{
   color: darkblue;
   text-decoration-line: underline;
+}
+
+label{
+  font-size: large;
 }
