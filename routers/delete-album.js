@@ -4,7 +4,7 @@ const Albums = require('../models/albums');
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 module.exports = function deleteAlbum(app) {
-  app.post('/options', urlencodedParser, (req, res) => {
+  app.post('/delete-album', urlencodedParser, (req, res) => {
     if (!req.body) {
       return res.sendStatus(400);
     }

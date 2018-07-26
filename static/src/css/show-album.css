@@ -1,0 +1,29 @@
+body{
+    background-color: #CCFF99;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#upload{
+    position: absolute;
+    right: 50%;
+    left: 40%;
+    width: 300px;
+}
+
+input.button{
+    margin-top: 10px;
+}
+
+.button{
+    background-color: green;
+    border: solid 1px;
+    border-radius: 20px;
+    font-size: 20pt;
+    color: #0cf404;
+    text-decoration: none;
+}
+
+.button:hover{
+    background-color: azure;
+    color: darkblue;
+}

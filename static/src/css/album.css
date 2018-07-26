@@ -3,18 +3,18 @@ body{
   font-family: 'Montserrat', sans-serif;
 }
 
-.button{
-  background-color: green;
-  border: solid 1px;
-  border-radius: 20px;
-  font-size: 20pt;
-  color: #0cf404;
-  text-decoration: none;
+#options{
+  position: absolute;
+  left: 25%;
+  top: 15%;
 }
 
-.button:hover{
-  background-color: azure;
-  color: darkblue;
+#add{
+  margin-bottom: 10px;
+}
+
+#delete{
+  margin-bottom: 10px;
 }
 
 #userName{
@@ -37,15 +37,46 @@ body{
 
 #logout:hover {
   text-decoration: none;
-  color: blue;
-}
-
-#option{
-  position: absolute;
-  top: 200px;
+  color: darkblue;
 }
 
 #listAlbum{
   position: absolute;
-  top: 250px;
+  right: 35%;
+  top: 10%;
+}
+
+.button{
+  margin-top: 10px;
+  background-color: green;
+  border: solid 1px;
+  border-radius: 20px;
+  font-size: 20pt;
+  color: #0cf404;
+  text-decoration: none;
+}
+
+.button:hover{
+  background-color: azure;
+  color: darkblue;
+}
+
+li{
+  font-size: x-large;
+  list-style-type: none;
+}
+
+.linkAlbum{
+  text-decoration: none;
+  color: black;
+}
+
+.linkAlbum:hover{
+  color: darkblue;
+  text-decoration-line: underline;
+}
+
+label{
+  margin-bottom: 10px;
+  font-size: x-large;
 }
