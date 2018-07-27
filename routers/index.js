@@ -6,6 +6,7 @@ const logOut = require('./logout');
 const deleteAlbum = require('./delete-album');
 const renameAlbum = require('./rename-album');
 const showAlbum = require('./show-album');
+const uploadPhoto = require('./upload-photo');
 
 module.exports = function routers (app) {
   main(app);
@@ -16,4 +17,5 @@ module.exports = function routers (app) {
   renameAlbum(app);
   logOut(app);
   showAlbum(app);
+  uploadPhoto(app);
 };

@@ -5,10 +5,11 @@
 <body>
     <div id="upload">
         <h1>{{albumTitle}}</h1>
-        <form enctype="multipart/form-data" method="post">
+        <form enctype="multipart/form-data" method="post" action="/upload-photo">
             <p>Upload your photos to the server</p>
             <p><input type="file" name="photo" multiple accept="image/*,image/jpeg">
                 <input type="submit" value="Upload" class="button"></p>
+            <p>{{error}}</p>
         </form>
     </div>
 </body>
