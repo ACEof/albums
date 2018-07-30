@@ -23,7 +23,14 @@ const selectAlbumTitle = async (userID) => {
   const albumTitile = await db.query('SELECT albumtitle from albums where user_id = ?', 
     {replacements: [userID], type: db.QueryTypes.SELECT})
   return albumTitile;  
-}
+};
+
+const selectAlbumID = async (albumTitle) => {
+  const albumID = await db.query('SELECT id from albums where albumtitle = ?',
+    {replacements: [albumTitle], type: db.QueryTypes.SELECT})
+  return albumID;
+};
+
 function renameAlbum(oldTitle, newTitle){
   Albums.update({
     albumtitle: newTitle,
@@ -32,4 +39,4 @@ function renameAlbum(oldTitle, newTitle){
   })
 }
 
-module.exports = {Albums, createAlbum, selectAlbumTitle, deleteAlbum, renameAlbum};
+module.exports = {Albums, createAlbum, selectAlbumTitle, selectAlbumID, deleteAlbum, renameAlbum};

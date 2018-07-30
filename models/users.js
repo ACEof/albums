@@ -11,7 +11,7 @@ const Users = db.define('users',
     const select = await db.query('SELECT id from users where username = ?', 
        { replacements: [userName], type: db.QueryTypes.SELECT})
     return select;
- }
+ };
 
  function findOrCreateUser(name){
   Users
