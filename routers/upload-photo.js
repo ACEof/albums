@@ -1,5 +1,5 @@
 const multer = require('multer');
-const upload = multer({dest: 'uploads/'});
+const upload = multer({dest: 'static/uploads/'});
 const Albums = require('../models/albums');
 const Photos = require('../models/photos');
 
@@ -13,6 +13,6 @@ module.exports = function uploadPhoto(app) {
     let albumID = selectID[0].id;
     let photoName = req.file.filename;
     Photos.createPhoto(albumID, photoName);
-    res.redirect('/');
+    res.redirect('/show-album-' + albumTitle);
   });
 };

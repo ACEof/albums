@@ -21,13 +21,13 @@ function deleteAlbum(title){
 
 const selectAlbumTitle = async (userID) => {
   const albumTitile = await db.query('SELECT albumtitle from albums where user_id = ?', 
-    {replacements: [userID], type: db.QueryTypes.SELECT})
+    {replacements: [userID], type: db.QueryTypes.SELECT});
   return albumTitile;  
 };
 
 const selectAlbumID = async (albumTitle) => {
   const albumID = await db.query('SELECT id from albums where albumtitle = ?',
-    {replacements: [albumTitle], type: db.QueryTypes.SELECT})
+    {replacements: [albumTitle], type: db.QueryTypes.SELECT});
   return albumID;
 };
 
