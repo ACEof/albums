@@ -1,6 +1,5 @@
 const Albums = require('../models/albums');
 const Photos = require('../models/photos');
-const im = require('imagemagick');
 
 function showAlbum(app) {
   app.get('/show-album-*', async (req, res) => {
