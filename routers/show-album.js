@@ -1,7 +1,18 @@
+const Albums = require('../models/albums');
+const Photos = require('../models/photos');
+
 function showAlbum(app) {
-  app.get('/show-album-*', (req, res) => {
+  app.get('/show-album-*', async (req, res) => {
     let title = req.url.substr(12);
-    res.render('show-album', {albumTitle: title, headTitle: title});
+    let albumID = await Albums.selectAlbumID(title);
+    let photoName = await Photos.selectPhotoName(albumID[0].id);
+    let renderPhotos = {};
+
+    for (const i in photoName) {
+      renderPhotos[i] = photoName[i].photoname;
+    }
+
+    res.render('show-album', {albumTitle: title, headTitle: title, photos: renderPhotos});
   });
 }
 

@@ -3,5 +3,4 @@ node_modules
 config
 .idea/
 .idea
-uploads
-./uploads
+./static/uploads

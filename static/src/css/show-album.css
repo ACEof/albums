@@ -27,3 +27,20 @@ input.button{
     background-color: azure;
     color: darkblue;
 }
+
+#photoList{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
+
+#photoList > li{
+    list-style-type: none;
+}
+
+#photos {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+}
