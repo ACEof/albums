@@ -33,6 +33,7 @@ input.button{
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 5px;
+    image-rendering: optimizeQuality;
 }
 
 #photoList > li{
