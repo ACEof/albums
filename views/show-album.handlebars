@@ -12,11 +12,10 @@
             <p>{{error}}</p>
         </form>
     </div>
-    <img src="/uploads/small" alt="">
     <div id="photos">
         <ul id="photoList">
             {{#each photos}}
-                <li><a href=""><img src="/uploads/{{this}}" alt="photo" width="220" height="220"></a> </li>
+                <li><a href="/photo-{{this}}"><img src="/uploads/{{this}}" alt="photo" width="220" height="220"></a> </li>
             {{/each}}
         </ul>
     </div>

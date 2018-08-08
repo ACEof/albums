@@ -7,6 +7,7 @@ const deleteAlbum = require('./delete-album');
 const renameAlbum = require('./rename-album');
 const showAlbum = require('./show-album');
 const uploadPhoto = require('./upload-photo');
+const showPhoto = require('./show-big-photo');
 
 module.exports = function routers (app) {
   main(app);
@@ -18,4 +19,5 @@ module.exports = function routers (app) {
   logOut(app);
   showAlbum(app);
   uploadPhoto(app);
+  showPhoto(app);
 };
