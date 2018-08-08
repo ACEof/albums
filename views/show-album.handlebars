@@ -3,6 +3,8 @@
     <title>{{headTitle}}</title>
 </head>
 <body>
+<div class="wrapper">
+
     <div id="upload">
         <h1>{{albumTitle}}</h1>
         <form enctype="multipart/form-data" method="post" action="">
@@ -12,6 +14,7 @@
             <p>{{error}}</p>
         </form>
     </div>
+
     <div id="photos">
         <ul id="photoList">
             {{#each photos}}
@@ -19,4 +22,5 @@
             {{/each}}
         </ul>
     </div>
+</div>
 </body>
