@@ -17,6 +17,13 @@ const selectPhotoName = async (albumID) => {
   const photoName = await db.query('SELECT photoname from photos where albumid = ?',
     {replacements: [albumID], type: db.QueryTypes.SELECT});
   return photoName;
-};
+}
 
-module.exports = {Photos, createPhoto, selectPhotoName};
+function deletePhoto(photoName){
+  Photos
+    .destroy({where: {
+        photoname: photoName
+      }});
+}
+
+module.exports = {Photos, createPhoto, selectPhotoName, deletePhoto};
