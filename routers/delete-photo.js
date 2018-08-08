@@ -1,4 +1,5 @@
 const Photos = require('../models/photos');
+const fs = require('fs');
 
 module.exports = function (app) {
   app.get('/delete-photo-*', (req, res) => {

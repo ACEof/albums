@@ -3,15 +3,16 @@ body{
     font-family: 'Montserrat', sans-serif;
 }
 
-#upload{
-    position: absolute;
-    right: 50%;
-    left: 40%;
-    width: 300px;
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 5px;
 }
 
-input.button{
-    margin-top: 10px;
+#upload{
+    grid-row: 1;
+    grid-column: 2;
 }
 
 .button{
@@ -30,8 +31,7 @@ input.button{
 
 #photoList{
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 5px;
     image-rendering: optimizeQuality;
 }
@@ -40,8 +40,7 @@ input.button{
     list-style-type: none;
 }
 
-#photos {
-    position: absolute;
-    top: 30%;
-    left: 25%;
+.wrapper #photos {
+    grid-column: 2;
+    grid-row: 2;
 }

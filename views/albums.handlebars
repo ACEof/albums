@@ -3,8 +3,11 @@
   <title>Albums</title>
 </head>
 <body>
-<a href="/logout" id="logout">LogOut</a> <br>
-<p id="userName">{{name}}</p>
+<div class="wrapper">
+    <div id="user">
+        <p id="userName">{{name}}</p>
+        <a href="/logout" id="logout">LogOut</a>
+    </div>
 
 <div id="options">
   <div id="add">
@@ -21,7 +24,7 @@
       </form>
   </div>
 
-  <div>
+  <div id="rename">
       <form action="/rename-album" method="POST">
           <label class="lbTitle">Old Title</label> <br>
           <input name="oldTitle" type="text"> <br>
@@ -40,4 +43,5 @@
         {{/each}}
       </ul>
   </div>
+</div>
 </body>

@@ -3,10 +3,13 @@ body{
   font-family: 'Montserrat', sans-serif;
 }
 
-#options{
-  position: absolute;
-  left: 25%;
-  top: 15%;
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.wrapper #options{
+  grid-column: 2;
 }
 
 #add{
@@ -17,21 +20,17 @@ body{
   margin-bottom: 10px;
 }
 
+.wrapper #user{
+  grid-column: 5;
+}
+
 #userName{
   font-size: 20px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 200px;
   color: black;
 }
 
 #logout{
   font-size: 20px;
-  position: absolute;
-  top: 70px;
-  right: 0;
-  width: 200px;
   color: black;
 }
 
@@ -40,10 +39,8 @@ body{
   color: darkblue;
 }
 
-#listAlbum{
-  position: absolute;
-  right: 35%;
-  top: 10%;
+.wrapper #listAlbum{
+  grid-column: 4;
 }
 
 .button{
