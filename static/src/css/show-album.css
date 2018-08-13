@@ -6,7 +6,7 @@ body{
 .wrapper{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 5px;
 }
 
@@ -15,18 +15,10 @@ body{
     grid-column: 2;
 }
 
-.button{
-    background-color: green;
-    border: solid 1px;
-    border-radius: 20px;
-    font-size: 20pt;
-    color: #0cf404;
-    text-decoration: none;
-}
-
-.button:hover{
-    background-color: azure;
-    color: darkblue;
+#rename{
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 40%;
 }
 
 #photoList{
@@ -43,4 +35,18 @@ body{
 .wrapper #photos {
     grid-column: 2;
     grid-row: 2;
+}
+
+.button{
+    background-color: green;
+    border: solid 1px;
+    border-radius: 20px;
+    font-size: 20pt;
+    color: #0cf404;
+    text-decoration: none;
+}
+
+.button:hover{
+    background-color: azure;
+    color: darkblue;
 }

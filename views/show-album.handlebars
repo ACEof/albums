@@ -11,7 +11,14 @@
             <p>Upload your photos to the server</p>
             <p><input type="file" name="photo" multiple accept="image/*,image/jpeg">
                 <input type="submit" value="Upload" class="button"></p>
-            <p>{{error}}</p>
+        </form>
+    </div>
+
+    <div id="rename">
+        <form action="/rename-{{albumTitle}}" method="POST">
+            <label class="lbTitle">New Album Title</label> <br>
+            <input name="newTitle" type="text">
+            <input type="submit" class="button" value="Rename">
         </form>
     </div>
 
