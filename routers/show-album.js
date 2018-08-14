@@ -12,7 +12,7 @@ function showAlbum(app) {
       renderPhotos[i] = photoName[i].photoname;
     }
 
-    res.render('show-album', {albumTitle: title, headTitle: title, photos: renderPhotos});
+    res.render('show-album', {albumTitle: title, headTitle: title, photos: renderPhotos, album: title});
   });
 }
 

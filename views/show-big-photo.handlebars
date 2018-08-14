@@ -8,8 +8,20 @@
     <input type="button" onclick="history.back();" id="close" class="button" value="Close"/>
 
     <div id="bigPhoto">
-        <img src="/uploads/{{photo}}" alt="" >
+        <ul id="slides">
+            <li class="slide showing"><img src="/uploads/{{photo}}" alt=""></li>
+            {{#each slides}}
+                <li class="slide"><img src="/uploads/{{this}}" alt=""></li>
+            {{/each}}
+        </ul>
     </div>
-</div>
 
+    <div id="controls">
+        <button class="controls" id="pause">Pause</button>
+        <button class="controls" id="previous"><-</button>
+        <button class="controls" id="next">-></button>
+    </div>
+
+</div>
 </body>
+<script src="/src/js/slider.js"></script>

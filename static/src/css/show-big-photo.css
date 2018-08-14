@@ -1,13 +1,12 @@
 body{
     background-color: #CCFF99;
     font-family: 'Montserrat', sans-serif;
-
 }
 
 .wrapper{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
 }
 
 #bigPhoto{
@@ -32,6 +31,11 @@ body{
     grid-column: 3;
 }
 
+#controls{
+    grid-column: 2;
+    grid-row: 2;
+}
+
 .button{
     height: 40px;
     width: 200px;
@@ -47,4 +51,50 @@ body{
 .button:hover{
     background-color: azure;
     color: darkblue;
+}
+
+#slides{
+    position: relative;
+    height: 150px;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+.slide{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+.showing{
+    opacity: 1;
+    z-index: 2;
+}
+
+.controls{
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 20px 0px;
+    font-size: 20px;
+    cursor: pointer;
+    border: 2px solid #fff;
+    margin: 10px 0px 0px 10px;
+    width: 70px;
+}
+
+.controls:hover,
+.controls:focus{
+    background: #eee;
+    color: #333;
 }

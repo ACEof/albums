@@ -17,7 +17,7 @@ const selectPhotoName = async (albumID) => {
   const photoName = await db.query('SELECT photoname from photos where albumid = ?',
     {replacements: [albumID], type: db.QueryTypes.SELECT});
   return photoName;
-}
+};
 
 function deletePhoto(photoName){
   Photos
@@ -26,4 +26,10 @@ function deletePhoto(photoName){
       }});
 }
 
-module.exports = {Photos, createPhoto, selectPhotoName, deletePhoto};
+const selectAlbumId = async (photoName) => {
+  const albumID = await db.query('SELECT albumid from photos where photoname = ?',
+    {replacements: [photoName], type: db.QueryTypes.SELECT});
+  return albumID;
+};
+
+module.exports = {Photos, createPhoto, selectPhotoName, deletePhoto, selectAlbumId};
